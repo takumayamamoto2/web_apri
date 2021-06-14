@@ -1,0 +1,46 @@
+.wid-master{
+    max-width: 490px;
+}
+
+.wid-200{
+    max-width: 200px;
+}
+
+.wid-50{
+    width: 50px;
+}
+
+.margin-center{
+    margin: 0 auto;
+}
+
+/*マージン*/
+.margin{
+    margin: 5px;
+}
+
+
+.flex{
+    display: flex;
+}
+
+.flex-reverse{
+    flex-wrap: wrap-reverse;
+}
+
+.border-main{
+    border: solid 1px #bbbbbb;
+}
+
+.text-big{
+    font-size: 36px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/*上を空ける*/
+.margin-top{
+    margin-top: 30px;
+}
