@@ -1,5 +1,6 @@
 .wid-master{
     max-width: 490px;
+    min-width: 490px;
 }
 
 .wid-200{
@@ -19,6 +20,10 @@
     margin: 5px;
 }
 
+/*パディング*/
+.padding{
+    padding: 10px;
+}
 
 .flex{
     display: flex;

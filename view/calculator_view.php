@@ -13,10 +13,16 @@
             }
             
             // 文字を更新
-            function update_string(string){
+             function update_string(string){
                 document.getElementById('text_box').value = string;
+             }
+
+            // テキストボックスを更新
+            function history_string(string){
+                var data = document.getElementById(string).value;
+                document.getElementById('text_box').value = data;
             }
-            
+
             // 文字の最後尾を一文字カット
             function string_slice(){
                 var data = document.getElementById('text_box').value;
@@ -31,6 +37,7 @@
             // update_string(f().toString())
 
             // }
+            
 
             $(function(){
 
@@ -39,11 +46,11 @@
     </head>
     <body>
         <div class="wid-master margin-center">
-            <div class="border-main margin-top">
+            <div class="border-main margin-top padding">
             <h1 class="text-center">WEB電卓</h1>
-                <form id="result" method="post" action="calculator.php">
+                <form id="result" method="post" action="calculator_result.php">
                     <!-- テキストボックス -->
-                    <input class="text-big margin" size="23" type="text" id="text_box" name="calculation" value="<?php if(isset($result_data)){ print $result_data; } ?>" placeholder="計算式を入力してください">
+                    <input class="text-big margin" size="22" type="text" id="text_box" name="calculation" value="<?php if(isset($result_data)){ print $result_data; } ?>" placeholder="計算式を入力してください">
                 </form>
 
                 <div class="flex">
@@ -82,19 +89,42 @@
                         <button onclick="string_slice()" type="button" class="btn btn-dark text-big margin">◀</button>
 
                         <!-- 計算履歴ボタン -->
-                        <button onclick="string_slice()" type="button" class="btn btn-success text-big margin">計算履歴を表示</button>
+                        <form action="calculator_history.php" method="post">
+                            <?php if($display_mode == DISPLAY_STATUS['close']){ ?>
+                            <button type="submit" class="btn btn-success text-big margin" name="display" value="<?php print DISPLAY_STATUS['open']; ?>">履歴を表示</button>
+                            <?php } else if($display_mode == DISPLAY_STATUS['open']){ ?>
+                            <button type="submit" class="btn btn-secondary text-big margin" name="display" value="<?php print DISPLAY_STATUS['close']; ?>">履歴を非表示</button>
+                            <?php } ?>
+                        </form>
+
+                        <!-- 計算履歴削除ボタン -->
+                        <form action="calculator_history_delete.php" method="post">
+                            <button type="submit" class="btn btn-warning text-big margin">履歴削除</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <select onclick="add_string('dd')" class="form-select margin-top wid-master text-big" multiple>
-                <option selected>Open this select menu</option>
-                <option id="dd" value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            
+            <?php if($display_mode == DISPLAY_STATUS['open']){ ?>
+                <div class="alert alert-success margin-top" role="alert">
+                計算履歴を表示中です。計算式を押すと式が反映されます。
+                </div>
+                <select class="form-select wid-master text-big" multiple>
+                <?php   if(is_array($result_historys) === true){ ?> 
+                            <?php $id=100; // 数字ボタンのidと被るので100からスタート
+                            foreach($result_historys as $result_history){ ?>
+                                <?php $id++; ?>
+                                <option onclick="history_string(<?php print $id; ?>)" id="<?php print $id; ?>" value="<?php print $result_history;?>"><?php print $result_history;?></option>
+                <?php       }
+                        } else { ?>
+                            <option>計算履歴はありません</option>
+                <?php   } ?>
+                </select>
+            <?php } else if($display_mode == DISPLAY_STATUS['close']){ ?>
+                <div class="alert alert-secondary margin-top" role="alert">
+                計算履歴は表示していません。
+                </div>
+            <?php } ?>    
         </div>
  
         <!--
