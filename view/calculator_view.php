@@ -12,9 +12,9 @@
                 document.getElementById('text_box').value += data;
             }
             
-            // 文字を全消去
-            function delete_all(){
-                document.getElementById('text_box').value = "";
+            // 文字を更新
+            function update_string(string){
+                document.getElementById('text_box').value = string;
             }
             
             // 文字の最後尾を一文字カット
@@ -24,6 +24,14 @@
                 document.getElementById('text_box').value = slice_data;
             }
 
+            // 計算をする
+            // function calcu(){
+            // let r = document.getElementById('text_box').value
+            // let f = new Function('return ' + r)
+            // update_string(f().toString())
+
+            // }
+
             $(function(){
 
             });
@@ -32,10 +40,12 @@
     <body>
         <div class="wid-master margin-center">
             <div class="border-main margin-top">
-            <h1 class="text-center">簡易版WEB電卓</h1>
-                <!-- テキストボックス -->
-                <input class="text-big margin" size="23" type="text" id="text_box" value="" placeholder="計算式を入力してください">
-                
+            <h1 class="text-center">WEB電卓</h1>
+                <form id="result" method="post" action="calculator.php">
+                    <!-- テキストボックス -->
+                    <input class="text-big margin" size="23" type="text" id="text_box" name="calculation" value="<?php if(isset($result_data)){ print $result_data; } ?>" placeholder="計算式を入力してください">
+                </form>
+
                 <div class="flex">
 
                     <div class="flex flex-reverse wid-200 text-center">
@@ -46,8 +56,8 @@
                         <button onclick="add_string('dot')"  id="dot" type="button" class="btn btn-light text-big margin wid-50" value=".">.</button>
 
                         <!-- 送信ボタン(=) -->
-                        <button type="button" class="btn btn-primary text-big margin wid-50">=</button>
-
+                        <button onclick="calcu()" form="result" type="submit" class="btn btn-primary text-big margin wid-50">=</button>
+                
                         <!-- 数字ボタン -->
                         <?php for($i = 1; $i < 10; $i++){ ?>
                         <button onclick="add_string('<?php print $i; ?>')" id="<?php print $i; ?>" 
@@ -66,7 +76,7 @@
                         <button onclick="add_string('brackets_end')"   id="brackets_end"   type="button" class="btn btn-secondary text-big wid-50 margin" value=")">)</button>
 
                         <!-- 全消去ボタン -->
-                        <button onclick="delete_all()" id="delete" type="button" class="btn btn-danger text-big margin">全消去</button>
+                        <button onclick="update_string('')" id="delete" type="button" class="btn btn-danger text-big margin">全消去</button>
                         
                         <!-- 一文字消去ボタン -->
                         <button onclick="string_slice()" type="button" class="btn btn-dark text-big margin">◀</button>
