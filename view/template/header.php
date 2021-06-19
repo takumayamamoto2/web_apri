@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <!-- viewportでスマホ、タブレット向けの設定 -->
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=550">
 <!-- IEの最新で表示 -->
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!-- Bootstrapと呼ばれるCSSのフレームワーク設定 -->

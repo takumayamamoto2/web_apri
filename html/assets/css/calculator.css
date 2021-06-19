@@ -1,6 +1,16 @@
+.wid-body{
+    max-width: 550px;
+    min-width: 550px;
+}
+
 .wid-master{
     max-width: 495px;
     min-width: 495px;
+}
+
+.wid-textbox{
+    max-width: 465px;
+    min-width: 465px;
 }
 
 .wid-200{
@@ -47,5 +57,5 @@
 
 /*上を空ける*/
 .margin-top{
-    margin-top: 30px;
+    margin-top: 10px;
 }

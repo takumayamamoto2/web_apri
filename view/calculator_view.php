@@ -102,11 +102,11 @@
             
             
              $(function(){
-                carsor_last()
+                //carsor_last()
              });
         </script>
     </head>
-    <body>
+    <body class="wid-body margin-center">
         <div class="wid-master margin-center">
             <div class="border-main margin-top padding">
             <h1 class="text-center">WEB電卓</h1>
@@ -127,7 +127,7 @@
 
                 <form id="result" method="post" action="calculator_result.php">
                     <!-- テキストボックス -->
-                    <input class="text-big margin" size="22" type="text" id="text_box" name="calculation" value="<?php if(isset($result_data)){ print $result_data; } ?>" placeholder="計算式を入力してください">
+                    <input class="text-big margin wid-textbox" type="text" id="text_box" name="calculation" value="<?php if(isset($result_data)){ print $result_data; } ?>" placeholder="計算式を入力してください">
                 </form>
 
                 <div class="flex">
@@ -199,17 +199,17 @@
                 <div class="alert alert-success margin-top" role="alert">
                 計算履歴を表示中です。計算式を押すと式が反映されます。
                 </div>
-                <select class="form-select wid-master text-big" multiple>
-                <?php   if(is_array($result_historys) === true){ ?> 
-                            <?php $id=100; // 数字ボタンのidと被るので100からスタート
+                <div class="list-group text-big">
+                <?php   if(is_array($result_historys) === true){ ?>
+                    <?php $id=100; // 数字ボタンのidと被るので100からスタート
                             foreach($result_historys as $result_history){ ?>
                                 <?php $id++; ?>
-                                <option onclick="history_string(<?php print $id; ?>)" id="<?php print $id; ?>" value="<?php print $result_history;?>"><?php print $result_history;?></option>
+                                <button onclick="history_string(<?php print $id; ?>)" id="<?php print $id; ?>" value="<?php print $result_history;?>" type="button" class="list-group-item list-group-item-action"><?php print $result_history;?></button>
                 <?php       }
                         } else { ?>
                             <option>計算履歴はありません</option>
                 <?php   } ?>
-                </select>
+                </div>
             <?php } else if($display_mode == DISPLAY_STATUS['close']){ ?>
                 <div class="alert alert-secondary margin-top" role="alert">
                 計算履歴は表示していません。

@@ -5,7 +5,6 @@ define('MODEL_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../model/');
 define('STYLESHEET_PATH', '/assets/css/');
 
 define('HOME_URL', '/calculator.php');
-define('LOGIN_URL', '/login.php');
 
 define('COOKIE_TIME', 3600 * 24 * 365);
 define('TAX', 0.1);
