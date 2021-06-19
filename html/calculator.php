@@ -18,11 +18,13 @@ $result_historys = get_cookie('calcu_formula');
 if(is_array($result_historys) !== false){
 // 計算履歴をHTMLエンティティにして取得
 $result_historys = entity_str_array($result_historys);
+// 計算履歴を新しいものが上に来るように逆順にする
+$result_historys = array_reverse($result_historys);
 }
 
 // 計算結果の答えを取得
 $result_data = get_cookie('calcu_result');
-// 計算履歴をHTMLエンティティにして取得
+// 計算結果をHTMLエンティティにして取得
 $result_data = entity_str($result_data);
 
 
