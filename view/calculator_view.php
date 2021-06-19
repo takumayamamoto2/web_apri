@@ -110,6 +110,7 @@
         <div class="wid-master margin-center">
             <div class="border-main margin-top padding">
             <h1 class="text-center">WEB電卓</h1>
+                <!-- 税込みボタンのメッセージ -->
                 <?php if($tax_mode == TAX_STATUS['open']){ ?>
                     <div class="alert alert-info margin-top" role="alert">
                     税込みで計算中です。答えを税込みで出します。<br>※2021年6月現在の10%
