@@ -21,10 +21,30 @@ function post_check(){
 
 // 飛んできたデータを計算する
 function calculator($calcu_data){
+
     if($calcu_data !== ''){
-    return eval('return'.'$sum='.$calcu_data.';');
+        // eval関数で受け取った値の構文ミスがあると例外エラーで処理が止まってしまうのでキャッチする
+        try{
+            $data = eval('return'.'$sum='.$calcu_data.';');
+            return $data;
+        } catch(Throwable $e){
+            return false;
+        }
+    }
+    return false;
+}
+
+// セッションを取得
+function get_session($name){
+    if(isset($_SESSION[$name]) === true){
+        return $_SESSION[$name];
     }
     return '';
+}
+
+// セッションをセット
+function set_session($name, $data){
+    $_SESSION[$name] = $data;
 }
 
 // クッキーを取得
@@ -49,7 +69,7 @@ function get_cookie_key($name, $number){
 // クッキーに保存
 function cookie_set($name, $data){
     if($name !== ''){
-    setcookie($name ,$data, time() +3600);
+    setcookie($name ,$data, time() + COOKIE_TIME);
     }
 }
 
@@ -57,16 +77,16 @@ function cookie_set($name, $data){
 function cookie_set_array($name, $data, $cookie_key){
     if($cookie_key !== false){
         $cookie_key++;
-        setcookie($name."[". $cookie_key . "]", $data, time() + 3600);
+        setcookie($name."[". $cookie_key . "]", $data, time() + COOKIE_TIME);
     } else {
-        setcookie($name."[". 0 . "]", $data, time() + 3600);
+        setcookie($name."[". 0 . "]", $data, time() + COOKIE_TIME);
     }
 }
 
 // クッキーデータを削除
 function cookie_delete($name){
     foreach($name as $key => $value){
-    setcookie('calcu_formula'."[". $key . "]", '', time() - 3600);
+    setcookie('calcu_formula'."[". $key . "]", '', time() - COOKIE_TIME);
     }
 }
 
@@ -81,8 +101,106 @@ function display_status($display){
     return DISPLAY_STATUS['close'];
 }
 
+// 税込み表示のステータス
+function tax_status($tax){
+    if($tax == TAX_STATUS['open']){
+        return TAX_STATUS['open'];
+    } else if($tax == TAX_STATUS['close']){
+        return TAX_STATUS['close'];
+    }
+    // 指定が無ければ非表示
+    return TAX_STATUS['close'];
+}
+
 // 指定のURLに飛ばす
 function redirect_to($url){
     header('Location: '. $url);
     exit;
 }
+
+// 特殊文字をHTMLエンティティに変換
+function entity_str($str){
+    return htmlspecialchars($str,ENT_QUOTES,'UTF-8');
+}
+
+// 特殊文字をHTMLエンティティに変換(配列)
+function entity_str_array($str){
+    foreach($str as $key => $value){
+        $str[$key] = entity_str($value);
+    }
+    return $str;
+}
+
+// 正規表現で判定を行う
+function valid_formula($str){
+    if(preg_match(FORMULA_REGEX, $str) === 1 && $str !== ''){ 
+        return true;
+    }
+    return false;
+}
+
+// 税込み計算をする
+function tax_add($result){
+    $tax = $result * TAX;
+    $result_tax = $result + $tax;
+    return $result_tax;
+}
+
+// 引数にエラーメッセージを入れるとセッションにメッセージを保存できる
+function set_error($err_msg){
+    $_SESSION['errors'][] = $err_msg;
+}
+  
+// セッションに保存されているエラーメッセージの取得
+function get_errors(){
+    // セッションに保存されているエラーメッセージを取得
+    $err_msg = get_session('errors');
+    // エラーメッセージが無かったら空の配列を返す
+    if($err_msg === ''){
+        return array();
+    }
+    // エラーメッセージを返す
+    return $err_msg;
+}
+
+// エラーメッセージ消去
+function delete_errors(){
+    // セッションに空の配列を保存（次回以降のエラーメッセージの初期化）
+    set_session('errors',  array());
+}
+
+// 余分な文字を削除と変換
+function str_change($str) {
+    // str_replace(変換前,変換後,配列名)で文字を置換する(全角空白を半角空白に置き換え)
+    $str = str_replace(' ', '', $str);
+    // 二文字連続で演算子が入った場合は一つにする
+    $str = preg_replace('/(\++)/', '+', $str);
+    $str = preg_replace('/(\-+)/', '-', $str);
+    $str = preg_replace('/(×)+/', '×', $str);
+    $str = preg_replace('/(÷)+/', '÷', $str);
+    $str = preg_replace('/(\(+)/', '(', $str);
+    $str = preg_replace('/(\)+)/', ')', $str);
+    $str = preg_replace('/(\.+)/', '.', $str);
+
+    // 数字を割る0することは出来ないのでエラーに置換して文字列でエラーを出す
+    // ÷0のみを指定してエラー文字に置き換える
+    $str = preg_replace('/^.+?÷0+$/', 'error', $str);
+    // エラーが出る文字をエラーに置き換え
+    $str = preg_replace('/(÷×)/', 'error', $str);
+    
+    // 全角文字をプログラムで読める半角演算子に置換する
+    $str = preg_replace('/(÷)/', '/', $str);
+    $str = preg_replace('/(×)/', '*', $str);
+
+    return $str;
+}
+
+// プログラムで読める半角演算子を全角文字に置換する(計算履歴表示用)
+function str_change_history($str){
+
+    $str = preg_replace('/(\/)/', '÷', $str);
+    $str = preg_replace('/(\*)/', '×', $str);
+
+    return $str;
+} 
+
