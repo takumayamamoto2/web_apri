@@ -9,7 +9,7 @@ session_start();
 // 履歴表示の有無をクッキーから取得
 $display_mode = get_cookie('display');
 
-// 履歴表示の有無をクッキーから取得
+// 税込み表示の有無をクッキーから取得
 $tax_mode = get_cookie('tax');
 
 // 計算履歴の取得
