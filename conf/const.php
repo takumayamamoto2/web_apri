@@ -2,7 +2,8 @@
 
 define('VIEW_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../view/');
 define('MODEL_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../model/');
-define('STYLESHEET_PATH', '/assets/css/');
+define('STYLESHEET_PATH', './assets/css/');
+define('JAVASCRIPT_PATH', './assets/javascript/');
 
 define('HOME_URL', '/calculator.php');
 
