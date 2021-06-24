@@ -1,3 +1,5 @@
+/* web_apri共用 */
+
 .wid-body{
     max-width: 550px;
     min-width: 550px;
@@ -59,4 +61,47 @@
 /*上を空ける*/
 .margin-top{
     margin-top: 10px;
+}
+
+
+
+/*---- 連打ゲーム ----*/
+
+.text-bold{
+    font-weight: bold;
+}
+
+.text-gray{
+    color: #777777;
+}
+
+.text-red{
+    color: #ff0000;
+}
+
+.text-big-power-few{
+    font-size: 55px;
+}
+
+.text-big-power{
+    font-size: 72px;
+}
+
+.text-normal{
+    font-size: 20px;
+}
+
+/*上を空ける*/
+.margin-top-power{
+    margin-top: 30px;
+}
+
+/*下を空ける*/
+.margin-bottom{
+    margin-bottom: 10px;
+}
+
+/*下を空ける強*/
+.margin-bottom-power{
+    margin-bottom: 50px;
 }
