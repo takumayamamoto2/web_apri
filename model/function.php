@@ -1,5 +1,7 @@
 <?php
 
+/* 電卓と連打ゲーム共用 */
+
 // postデータのチェックと取得
 function get_post($name){
     if(post_check() === true){
@@ -169,6 +171,29 @@ function delete_errors(){
     set_session('errors',  array());
 }
 
+// 引数にエラーメッセージを入れるとセッションにメッセージを保存できる
+function set_message($suc_msg){
+    $_SESSION['success'][] = $suc_msg;
+  }
+  
+  // セッションに保存されているエラーメッセージの取得
+  function get_messages(){
+    // セッションに保存されているエラーメッセージを取得
+    $suc_msg = get_session('success');
+    // エラーメッセージが無かったら空の配列を返す
+    if($suc_msg === ''){
+      return array();
+    }
+    // エラーメッセージを返す
+    return $suc_msg;
+  }
+  
+  // エラーメッセージ消去
+  function delete_messages(){
+      // セッションに空の配列を保存（次回以降のエラーメッセージの初期化）
+    set_session('success',  array());
+  }
+
 // 余分な文字を削除と変換
 function str_change($str) {
     // str_replace(変換前,変換後,配列名)で文字を置換する(全角空白を半角空白に置き換え)
@@ -204,3 +229,38 @@ function str_change_history($str){
     return $str;
 } 
 
+/*  連打ゲーム専用  */
+
+// バリデーションがtrueかfalseかの結果を得る
+function validate_regist($name, $mash){
+    $valid_name = is_valid_ranking_name($name);
+    $valid_mash = is_valid_ranking_mash($mash);
+
+    return $valid_name && $valid_mash;
+}
+
+// 名前のバリデーション
+function is_valid_ranking_name($name){
+    $check = true;
+    if($name === ''){
+        set_error('名前を入力してください');
+        $check = false;
+    } else if(mb_strlen($name) > 20){
+        set_error('名前は20文字以内で入力してください');
+        $check = false;
+    }
+    return $check;
+}
+
+// 連打数のバリデーション
+function is_valid_ranking_mash($mash){
+    $check = true;
+    if($mash === ''){
+        set_error('登録するスコアがありません');
+        $check = false;
+    } else if(preg_match(MASH_REGEX, $mash) === 0){
+        set_error('不正な値です');
+        $check = false;
+    }
+    return $check;
+}
