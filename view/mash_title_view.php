@@ -7,7 +7,7 @@
     </head>
     <body class="wid-body margin-center text-center">
         <!-- javascriptを読み込む -->
-        <script src="<?php print JAVASCRIPT_PATH . 'javascript.js';?>"></script>
+        <script src="<?php print JAVASCRIPT_PATH . 'js_mash.js';?>"></script>
         <div class="text-big-power-few text-gray text-bold margin-top">10秒連打ゲーム</div>
         <div class="text-gray margin-top text-normal">――10秒間の連打数を測る。ただそれだけ。</div>
         <a href="mash_game.php">
