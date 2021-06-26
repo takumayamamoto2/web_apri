@@ -18,7 +18,7 @@
         <!-- 連打数をカウントする文字 -->
         <form action="mash_regist.php" id="regist" method="post">
             <div id="mash_count" class="d-flex justify-content-center text-big margin-top-power text-bold"></div>
-            <input id="ranking_count" type="hidden" name="mash" value="">
+            <input id="ranking_count" type="hidden" name="mash" value="0">
         </form>
 
         <div id="" class="d-flex justify-content-center text-big margin-top-power text-bold">あなたの連打数は開発者級です！</div>

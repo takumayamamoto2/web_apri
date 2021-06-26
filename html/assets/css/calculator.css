@@ -67,6 +67,11 @@
 
 /*---- 連打ゲーム ----*/
 
+.wid-body-ranking{
+    max-width: 700px;
+    min-width: 700px;
+}
+
 .text-bold{
     font-weight: bold;
 }
