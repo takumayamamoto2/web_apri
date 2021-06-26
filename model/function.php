@@ -245,8 +245,8 @@ function is_valid_ranking_name($name){
     if($name === ''){
         set_error('名前を入力してください');
         $check = false;
-    } else if(mb_strlen($name) > 20){
-        set_error('名前は20文字以内で入力してください');
+    } else if(mb_strlen($name) > 15){
+        set_error('名前は15文字以内で入力してください');
         $check = false;
     }
     return $check;

@@ -17,3 +17,19 @@ function add_ranking($db, $name, $mash){
     return execute_query($db, $sql, array($name, $mash));
 }
 
+function get_ranking($db){
+
+    $sql="
+    SELECT
+      name,
+      mash,
+      createdate
+    FROM
+      mash_game
+    ORDER BY
+      mash DESC 
+    LIMIT 50
+    ";
+
+    return fetch_query_all($db, $sql);
+}

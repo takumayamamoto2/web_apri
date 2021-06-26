@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
         <title>連打ゲーム ランキング</title>
     </head>
-    <body class="wid-body margin-center text-center">
+    <body class="wid-body-ranking margin-center text-center">
         <!-- javascriptを読み込む -->
         <script src="<?php print JAVASCRIPT_PATH . 'javascript.js';?>"></script>
         <div class="text-big-power-few text-gray text-bold margin-top">10秒連打ゲーム</div>
@@ -16,30 +16,35 @@
         <table class="table margin-top">
             <thead>
                 <tr>
-                <th scope="col">順位</th>
-                <th scope="col">名前</th>
-                <th scope="col">連打数</th>
-                <th scope="col">日付</th>
+                <th>称号</th>
+                <th>順位</th>
+                <th class="wid-200">名前</th>
+                <th>連打数</th>
+                <th>登録日時</th>
                 </tr>
             </thead>
             <tbody>
+            <?php  
+                $rank = 1;
+                foreach($rankings as $ranking){ 
+                    $number = 0;
+                    $mash = $ranking['mash'];?>
                 <tr>
-                    <th scope="row">1位</th>
-                    <td>てすと</td>
-                    <td>20回</td>
-                    <td>2021/6/20</td>
+                    <th><?php 
+                        while($number < MASH_CLASS_MAX){
+                                $number = $number + 10;
+                            if($mash < $number){
+                                print MASH_CLASS[$number]; ?>
+                                <th><?php print $rank++ . '位'; ?></th>
+                                <td><?php print $ranking['name']; ?></td>
+                                <td><?php print $ranking['mash'] .'回'; ?></td>
+                                <td><?php print $ranking['createdate']; ?></td>
+                      <?php     continue 2; // 条件が当てはまったらwhileループから脱出
+                            } 
+                        } ?>
+                    </th>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>あああああああああああ</td>
-                    <td>@twitter</td>
-                </tr>
+            <?php } ?>
             </tbody>
         </table>
     </body>
