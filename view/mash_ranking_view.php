@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <?php include VIEW_PATH . 'template/header.php'; ?>
+        <?php include VIEW_PATH . 'template/header_mash.php'; ?>
         <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
         <title>連打ゲーム ランキング</title>
     </head>
-    <body class="wid-body-ranking margin-center text-center">
+    <body class="wid-body-mash margin-center text-center">
         <!-- javascriptを読み込む -->
         <script src="<?php print JAVASCRIPT_PATH . 'javascript.js';?>"></script>
         <div class="text-big-power-few text-gray text-bold margin-top">10秒連打ゲーム</div>
         <div class="text-big text-gray text-bold">～ランキング～</div>
         <div class="margin-top text-normal text-bold"><a href="mash_title.php">タイトルに戻る</a></div>
-        <div class="text-gray margin-top-power text-normal text-bold">ランキング！あなたの名前は載ってるかな？</div>
+        <div class="text-gray margin-top-power text-normal text-bold">50位まで表示されます！あなたの名前は載ってるかな？</div>
 
         <table class="table margin-top">
             <thead>

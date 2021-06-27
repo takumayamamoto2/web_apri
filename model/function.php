@@ -264,3 +264,12 @@ function is_valid_ranking_mash($mash){
     }
     return $check;
 }
+
+// 空白文字の置換
+function str_space_delete($str){
+    // 全角空白を半角空白に変換
+    $str = str_replace('　',' ',$str);
+    // 前後の半角空白を除去
+    $str = trim($str);
+    return $str;
+}

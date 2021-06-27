@@ -67,7 +67,7 @@
 
 /*---- 連打ゲーム ----*/
 
-.wid-body-ranking{
+.wid-body-mash{
     max-width: 700px;
     min-width: 700px;
 }
@@ -90,6 +90,10 @@
 
 .text-big-power{
     font-size: 72px;
+}
+
+.text-normal-power{
+    font-size: 30px;
 }
 
 .text-normal{

@@ -17,6 +17,8 @@ $name = get_post('name');
 $mash = get_post('mash');
 
 
+// 前後の空白を除去
+$name = str_space_delete($name);
 
 // バリデーションする
 if(validate_regist($name, $mash) !== false){
