@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <?php include VIEW_PATH . 'template/header.php'; ?>
+        <?php include VIEW_PATH . 'template/header_mash.php'; ?>
         <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
         <title>連打ゲーム ランキング登録</title>
     </head>
-    <body class="wid-body margin-center text-center">
+    <body class="wid-body-mash margin-center text-center">
         <!-- javascriptを読み込む -->
         <script src="<?php print JAVASCRIPT_PATH . 'js_mash.js';?>"></script>
         
