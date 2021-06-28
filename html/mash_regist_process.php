@@ -13,11 +13,11 @@ $db = getdb_connect();
 
 // ランキングへ登録する名前を取得
 $name = get_post('name');
-// ランキングへ登録するカウントを取得
-$mash = get_post('mash');
+// ランキングへ登録するカウントをセッションから取得
+$mash = get_session('mash');
 
 
-// 前後の空白を除去
+// 名前の前後の空白を除去
 $name = str_space_delete($name);
 
 // バリデーションする

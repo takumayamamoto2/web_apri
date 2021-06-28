@@ -133,6 +133,16 @@ function entity_str_array($str){
     return $str;
 }
 
+// 特殊文字をHTMLエンティティに変換(二次元配列)
+function entity_str_array_two($array_two){
+    foreach($array_two as $keys => $array){
+        foreach($array as $key => $value){
+            $array_two[$keys][$key] = entity_str($value);
+        }
+    }
+    return $array_two;
+}
+
 // 正規表現で判定を行う
 function valid_formula($str){
     if(preg_match(FORMULA_REGEX, $str) === 1 && $str !== ''){ 
@@ -229,7 +239,9 @@ function str_change_history($str){
     return $str;
 } 
 
-/*  連打ゲーム専用  */
+
+
+/*------  連打ゲーム専用  ------*/
 
 // バリデーションがtrueかfalseかの結果を得る
 function validate_regist($name, $mash){

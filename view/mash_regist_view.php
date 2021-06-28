@@ -19,7 +19,6 @@
                 <input type="text" class="form-control margin-top" maxlength="15" placeholder="15文字以内であれば入力可能です" name="name" value="">
             </div>
             <button type="submit" class="btn btn-primary text-bold text-normal" onclick="return check('この名前で登録してよろしいですか？')">この名前で登録</button>
-            <input type="hidden" name="mash" value="<?php print $mash; ?>" >
         </form>
         <?php } ?>
         <!-- ゲーム終了後のボタン -->
