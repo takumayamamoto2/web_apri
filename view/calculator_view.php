@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <?php include VIEW_PATH . 'template/header_mash.php'; ?>
-        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
+        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'web_apri.css'; ?>"> 
         <title>電卓</title>
 
     </head>

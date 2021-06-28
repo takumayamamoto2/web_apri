@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <?php include VIEW_PATH . 'template/header_mash.php'; ?>
-        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
+        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'web_apri.css'; ?>"> 
         <title>連打ゲーム ランキング登録</title>
     </head>
     <body class="wid-body-mash margin-center text-center">
@@ -16,7 +16,7 @@
         <form action="mash_regist_process.php" method="post">
             <div class="mb-3 margin-top">
                 <div id="explanation" class="text-normal text-gray">名前を入力してください</div>
-                <input type="text" class="form-control margin-top" maxlength="15" placeholder="15文字以内であれば入力可能です" name="name" value="">
+                <input type="text" class="form-control margin-top wid-300 margin-center" maxlength="15" placeholder="15文字以内であれば入力可能です" name="name" value="">
             </div>
             <button type="submit" class="btn btn-primary text-bold text-normal" onclick="return check('この名前で登録してよろしいですか？')">この名前で登録</button>
         </form>

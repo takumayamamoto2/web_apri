@@ -2,7 +2,9 @@
 <html lang="ja">
     <head>
         <?php include VIEW_PATH . 'template/header_mash.php'; ?>
-        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
+        <!-- viewportでスマホ、タブレット向けの設定 -->
+        <meta name="viewport" content="width=550 user-scalable=no">
+        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'web_apri.css'; ?>"> 
         <title>連打ゲーム</title>
     </head>
     <body class="wid-body-mash margin-center text-center">

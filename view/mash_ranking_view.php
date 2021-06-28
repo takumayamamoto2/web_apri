@@ -2,10 +2,11 @@
 <html lang="ja">
     <head>
         <?php include VIEW_PATH . 'template/header_mash.php'; ?>
-        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'calculator.css'; ?>"> 
+        <meta name="viewport" content="width=700">
+        <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'web_apri.css'; ?>"> 
         <title>連打ゲーム ランキング</title>
     </head>
-    <body class="wid-body-mash margin-center text-center">
+    <body class="wid-body-ranking margin-center text-center">
         <!-- javascriptを読み込む -->
         <script src="<?php print JAVASCRIPT_PATH . 'javascript.js';?>"></script>
         <div class="text-big-power-few text-gray text-bold margin-top">10秒連打ゲーム</div>
