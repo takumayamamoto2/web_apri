@@ -11,10 +11,10 @@
         <div class="text-big-power-few text-gray text-bold margin-top">10秒連打ゲーム</div>
         <div class="text-big text-gray text-bold">～ランキング～</div>
         <div class="margin-top text-normal text-bold"><a href="mash_title.php">タイトルに戻る</a></div>
-        <div class="text-gray margin-top-power text-normal text-bold">50位まで表示されます！あなたの名前は載ってるかな？</div>
+        <div class="text-gray margin-top-power text-normal text-bold">100位まで表示されます！あなたの名前は載ってるかな？</div>
 
         <table class="table margin-top">
-            <thead>
+            <thead class="alert-primary">
                 <tr>
                 <th>称号</th>
                 <th>順位</th>

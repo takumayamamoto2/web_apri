@@ -17,6 +17,7 @@ function add_ranking($db, $name, $mash){
     return execute_query($db, $sql, array($name, $mash));
 }
 
+// データベースからランキングデータを引き出す
 function get_ranking($db){
 
     $sql="
@@ -28,7 +29,7 @@ function get_ranking($db){
       mash_game
     ORDER BY
       mash DESC 
-    LIMIT 50
+    LIMIT 100
     ";
 
     return fetch_query_all($db, $sql);
