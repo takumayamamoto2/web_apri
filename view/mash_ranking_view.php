@@ -31,7 +31,17 @@
                     $number = 0;
                     $mash = $ranking['mash'];?>
                 <tr>
-                    <th><?php 
+                    <th><?php // 称号が限界以上の時は最大の称号固定表示
+                        if($mash > MASH_CLASS_MAX){
+                                print MASH_CLASS[MASH_CLASS_MAX]; ?>
+                                <th><?php print $rank++ . '位'; ?></th>
+                                <td><?php print $ranking['name']; ?></td>
+                                <td><?php print $ranking['mash'] .'回'; ?></td>
+                                <td><?php print $ranking['createdate']; ?></td>
+                      <?php 
+                            } ?>
+
+                        <?php 
                         while($number < MASH_CLASS_MAX){
                                 $number = $number + 10;
                             if($mash < $number){
