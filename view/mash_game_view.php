@@ -18,12 +18,12 @@
         <!-- ナビゲーション -->
         <div id="explanation" class="text-big text-gray margin-top">10秒間連打しよう！</div>
         <!-- カウントするタグ -->
-        <div id="count_msg" class="d-flex justify-content-center text-big margin-top text-bold"></div>
+        <div id="count_msg" class="d-flex justify-content-center text-big-power-few margin-top text-bold"></div>
         <!-- ボタンのタグ -->
         <button id="button" type="button" class="btn btn-primary rounded-circle p-0 shadow margin-top-power text-big-power" style="width:18rem;height:18rem;" disabled>ボタン</button>
         <!-- 連打数をカウントする文字 -->
         <form action="mash_regist.php" id="regist" method="post">
-            <div id="mash_count" class="d-flex justify-content-center text-big margin-top-power text-bold"></div>
+            <div id="mash_count" class="d-flex justify-content-center text-big-power-few margin-top-power text-bold"></div>
             <input id="ranking_count" type="hidden" name="mash" value="0">
         </form>
 

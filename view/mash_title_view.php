@@ -13,6 +13,6 @@
         <a href="mash_game.php">
             <button type="button" class="btn btn-primary text-big margin-top-power shadow" onclick="return check('ゲームを開始しますか？')">ゲームスタート</button>
         </a>
-        <div class="margin-top-power text-normal text-bold"><a href="mash_ranking.php">ランキング</a></div>
+        <div class="margin-top-power text-normal-power text-bold"><a href="mash_ranking.php">ランキング</a></div>
     </body>
 </html>
