@@ -1,5 +1,9 @@
 /* web_apri共用 */
 
+.zoom-invalid{
+    touch-action: none;
+}
+
 .wid-body{
     max-width: 550px;
     min-width: 550px;
