@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="zoom-invalid">
     <head>
         <?php include VIEW_PATH . 'template/header_mash.php'; ?>
         <link rel="stylesheet" href="<?php print STYLESHEET_PATH . 'web_apri.css'; ?>"> 

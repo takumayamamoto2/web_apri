@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="zoom-invalid">
     <head>
         <?php include VIEW_PATH . 'template/header_mash.php'; ?>
         <!-- viewportでスマホ、タブレット向けの設定 -->
