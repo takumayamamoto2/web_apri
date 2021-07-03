@@ -118,18 +118,6 @@
                 </div>
             <?php } ?>    
         </div>
- 
-        <!--
-        <button id="button100" type="button" class="btn btn-primary">ボタン</button>
-        <button id="zero"  type="button" class="btn btn-light" value="0">0</button>
-        <button id="two"   type="button" class="btn btn-light" value="2">2</button>
-        <button id="three" type="button" class="btn btn-light" value="3">3</button>
-        <button id="four"  type="button" class="btn btn-light" value="4">4</button>
-        <button id="five"  type="button" class="btn btn-light" value="5">5</button>
-        <button id="six"   type="button" class="btn btn-light" value="6">6</button>
-        <button id="seven" type="button" class="btn btn-light" value="7">7</button>
-        <button id="eight" type="button" class="btn btn-light" value="8">8</button>
-        <button id="nine"  type="button" class="btn btn-light" value="9">9</button> -->
 
     </body>
 </html>

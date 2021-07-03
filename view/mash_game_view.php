@@ -32,9 +32,9 @@
         
         <!-- ゲーム終了後のボタン(style="display: none;"で最初は非表示設定) -->
         <div id="" class="d-flex justify-content-around margin-top-power">
-            <a id="retry_button" style="display: none;" href="mash_game.php"><button type="button" class="btn btn-danger text-bold">もう一回する</button></a>
-            <button id="regist_button" style="display: none;" type="submit" form="regist" class="btn btn-success text-bold">結果をランキングに登録</button>
-            <a id="title_button" style="display: none;" href="mash_title.php"><button type="button" class="btn btn-secondary text-bold" onclick="return check('タイトル画面へ戻りますか？')">タイトルへ戻る</button></a>
+            <a data-button_finish="0" style="display: none;" href="mash_game.php"><button type="button" class="btn btn-danger text-bold">もう一回する</button></a>
+            <button data-button_finish="1" style="display: none;" type="submit" form="regist" class="btn btn-success text-bold">結果をランキングに登録</button>
+            <a data-button_finish="2" style="display: none;" href="mash_title.php"><button type="button" class="btn btn-secondary text-bold" onclick="return check('タイトル画面へ戻りますか？')">タイトルへ戻る</button></a>
         </div>
 
     </body>

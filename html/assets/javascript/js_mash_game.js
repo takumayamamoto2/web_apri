@@ -11,14 +11,11 @@ function count_msg(){
     let explanation = document.getElementById('explanation');
     // 終了後に表示するメッセージとボタンのid
     let rank_msg = document.getElementById('rank_msg');
-    let retry_button = document.getElementById('retry_button');
-    let regist_button = document.getElementById('regist_button');
-    let title_button = document.getElementById('title_button');
+    let button_finish = document.querySelectorAll('[data-button_finish]');
     let ranking_count = document.getElementById('ranking_count');
 
     // 開始前のカウント
     if(start_count > 0){
-        console.log(mash_class[20]);
         start_count--;
         msg_id.innerHTML = '後<div class="text-red">' + start_count + '</div>秒で始まります';
         let count = document.getElementById('mash_count');
@@ -51,10 +48,13 @@ function count_msg(){
                 } 
             }
 
-            // ボタンをインラインモードで表示
-            retry_button.style.display = 'inline';
-            regist_button.style.display = 'inline';
-            title_button.style.display = 'inline';
+            let i = 0;
+            // ループで配列分ループさせてボタンをインライン要素にする
+            while(i < button_finish.length){
+                // 非表示ボタンをインラインモードで表示
+                button_finish[i].style.display = 'inline';
+                i++;
+            }
             // HTMLの属性のonclickを消す クリック出来なくする
             button.removeAttribute('onclick');
             // HTMLの属性にdisabled(ボタンの無効)を追加 ボタンをクリックできなくする
