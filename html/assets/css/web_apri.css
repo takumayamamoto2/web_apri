@@ -37,6 +37,16 @@
     margin: 0 auto;
 }
 
+/*上を空ける*/
+.margin-top{
+    margin-top: 10px;
+}
+
+/*右を空ける*/
+.margin-right{
+    margin-right: 10px;
+}
+
 /*マージン*/
 .margin{
     margin: 5px;
@@ -59,19 +69,41 @@
     border: solid 1px #bbbbbb;
 }
 
-.text-big{
-    font-size: 36px;
-}
-
 .text-center{
     text-align: center;
 }
 
-/*上を空ける*/
-.margin-top{
-    margin-top: 10px;
+.text-bold{
+    font-weight: bold;
 }
 
+.text-big-power{
+    font-size: 72px;
+}
+
+.text-big-power-few{
+    font-size: 55px;
+}
+
+.text-big{
+    font-size: 36px;
+}
+
+.text-normal-power{
+    font-size: 30px;
+}
+
+.text-normal{
+    font-size: 20px;
+}
+
+.text-gray{
+    color: #777777;
+}
+
+.text-red{
+    color: #ff0000;
+}
 
 
 /*---- 連打ゲーム ----*/
@@ -84,34 +116,6 @@
 .wid-body-ranking{
     max-width: 700px;
     min-width: 700px;
-}
-
-.text-bold{
-    font-weight: bold;
-}
-
-.text-gray{
-    color: #777777;
-}
-
-.text-red{
-    color: #ff0000;
-}
-
-.text-big-power-few{
-    font-size: 55px;
-}
-
-.text-big-power{
-    font-size: 72px;
-}
-
-.text-normal-power{
-    font-size: 30px;
-}
-
-.text-normal{
-    font-size: 20px;
 }
 
 /*上を空ける*/
@@ -127,4 +131,22 @@
 /*下を空ける強*/
 .margin-bottom-power{
     margin-bottom: 50px;
+}
+
+
+/*---- キャラクター名生成機 ----*/
+
+.wid-body-name-make{
+    max-width: 900px;
+    min-width: 900px;
+}
+
+.wid-name-make{
+    max-width: 800px;
+    min-width: 800px;
+}
+
+.wid-name-text-box{
+    max-width: 600px;
+    min-width: 600px;
 }
