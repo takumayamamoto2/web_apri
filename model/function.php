@@ -285,3 +285,33 @@ function str_space_delete($str){
     $str = trim($str);
     return $str;
 }
+
+
+/*------  キャラネームメーカー専用  ------*/
+
+// 文字列を配列に変換(漢字専用)
+function str_change_array($str, $length = 1) {
+
+    // 第2引数に0以下の数値が来た場合は1
+    if ($length <= 0) $length = 1;
+
+    // 文字数を取得
+    $strlen = mb_strlen($str);
+    $array    = array();
+    for ($i = 0; $i < $strlen; $i += $length) {
+        // mb_substr(対象変数, 文字開始位置, $文字の長さ)で文字を一文字一文字配列で保存
+        $array[ ] = mb_substr($str, $i, $length);
+    }
+
+    return $array;
+}
+
+
+// 配列からランダムな文字列を出力する 指定がなければ5文字
+function get_random_str($str, $length = 5) {
+    // 第2引数の文字数分を生成する
+    for ($i = 0; $i < $length; $i++) {
+        $r_str .= $str[rand(0, count($str)-1)];
+    }
+    return $r_str;
+}
