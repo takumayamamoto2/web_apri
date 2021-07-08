@@ -147,6 +147,10 @@
 }
 
 .wid-name-text-box{
-    max-width: 600px;
-    min-width: 600px;
+    max-width: 770px;
+    min-width: 770px;
+}
+
+.border-line-bottom{
+    border-bottom: solid 1px #999999;
 }

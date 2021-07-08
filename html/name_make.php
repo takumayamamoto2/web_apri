@@ -15,7 +15,9 @@ $last_name_count = get_cookie('last_name_count');
 // Cookieから名字の位置を取得
 $last_name_posi = get_cookie('last_name_posi');
 // Cookieから文字種を取得
-$name_type = get_cookie('name_type');
+$first_name_type = get_cookie('first_name_type');
+// Cookieから文字種を取得
+$last_name_type = get_cookie('last_name_type');
 // Cookieからランダムで作った文字を取得
 $r_str = get_cookie('random_str');
 
