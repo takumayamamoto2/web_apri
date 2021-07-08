@@ -92,6 +92,11 @@ function cookie_delete($name){
     }
 }
 
+// 特定のクッキーデータを削除
+function cookie_delete_one($cookie_name,$key){
+    setcookie($cookie_name. "[". $key . "]", '', time() - COOKIE_TIME);
+}
+
 // 履歴表示のステータス
 function display_status($display){
     if($display == DISPLAY_STATUS['open']){
