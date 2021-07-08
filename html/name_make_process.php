@@ -21,32 +21,26 @@ $last_name_posi = get_post('last_name_posi');
 cookie_set('last_name_posi',$last_name_posi);
 
 // 生成する名前がひらがなかカタカナか漢字かの取得
-$name_type = get_post('name_type');
+$first_name_type = get_post('first_name_type');
 // 文字種をCookieに保存する
-cookie_set('name_type',$name_type);
+cookie_set('first_name_type',$first_name_type);
 
-// どの文字種かを判断
-switch($name_type){
-    case 'hiragana':
-        $str = HIRAGANA;
-        break;
-    case 'katakana':
-        $str = KATAKANA;
-        break;
-    case 'china_char':
-        $str = CHINA_CHAR;
-        // 漢字は定義している文字が配列ではないので配列に変換
-        $str = str_change_array($str, $length = 1);
-        break;
-    default:
-        $str = HIRAGANA;
-        break;
-}
+// 生成する名字がひらがなかカタカナか漢字かの取得
+$last_name_type = get_post('last_name_type');
+// 文字種をCookieに保存する
+cookie_set('last_name_type',$last_name_type);
 
-// ランダムで文字列を取得する
-$r_str = get_random_str($str,$first_name_count);
+
+// 名前がどの文字種かを判断して文字が格納されたデータを返す…漢字は配列に変換して返す
+$first_name_type_array = judgment_name_type($first_name_type);
+
+// 名字がどの文字種かを判断して文字が格納されたデータを返す…漢字は配列に変換して返す
+$last_name_type_array = judgment_name_type($last_name_type);
+
+// 名字を先に入れるか、後に入れるか無しかの判断して文字列を生成する
+$r_str = first_or_last_name($first_name_type_array, $last_name_type_array, $last_name_posi, $first_name_count, $last_name_count);
+
 // 取得した結果をCookieに保存する
 cookie_set('random_str',$r_str);
-
 
 redirect_to(NAME_MAKE_HOME_URL);

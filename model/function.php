@@ -315,3 +315,48 @@ function get_random_str($str, $length = 5) {
     }
     return $r_str;
 }
+
+// どの文字種かを判断して文字が格納されたデータを返す…漢字は配列に変換して返す
+function judgment_name_type($name_type){
+    // どの文字種かを判断
+    switch($name_type){
+        case 'hiragana':
+            return $str = HIRAGANA;
+            break;
+        case 'katakana':
+            return $str = KATAKANA;
+            break;
+        case 'china_char':
+            $str = CHINA_CHAR;
+            // 漢字は定義している文字が配列ではないので配列に変換
+            return $str = str_change_array($str, $length = 1);
+            break;
+        default:
+            return $str = HIRAGANA;
+            break;
+    }
+}
+
+// 名字を先に入れるか、後に入れるか無しかの判断して文字列を生成する
+function first_or_last_name($first_name_type_array, $last_name_type_array, $last_name_posi, $first_name_count, $last_name_count){
+    switch($last_name_posi){
+        case "front":
+            $r_str  = get_random_str($last_name_type_array, $last_name_count);
+            $r_str .= "　";
+            $r_str .= get_random_str($first_name_type_array, $first_name_count);
+            return $r_str;
+            break;
+        case "back":
+            $r_str  = get_random_str($first_name_type_array,$first_name_count);
+            $r_str .= "　";
+            $r_str .= get_random_str($last_name_type_array,$last_name_count);
+            return $r_str;
+            break;
+        case "none":
+            return $r_str = get_random_str($first_name_type_array,$first_name_count);
+            break;
+        default:
+            return $r_str = get_random_str($first_name_type_array,$first_name_count);
+            break;
+    }
+}
