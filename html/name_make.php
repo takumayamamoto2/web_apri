@@ -18,6 +18,9 @@ $last_name_posi = get_cookie('last_name_posi');
 $first_name_type = get_cookie('first_name_type');
 // Cookieから文字種を取得
 $last_name_type = get_cookie('last_name_type');
+// 名前の保存情報を取得
+$name_save_data = get_cookie('name_save');
+
 // Cookieからランダムで作った文字を取得
 $r_str = get_cookie('random_str');
 

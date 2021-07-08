@@ -14,7 +14,9 @@
             <div class="text-gray text-normal">そんなお悩みを瞬時に解決するページ――。</div>
         </header>
         <div class="wid-name-make margin-center margin-top border-main">
-            <div class="margin-center text-center"><input class="text-normal-power wid-name-text-box margin-top text-center" type="text" name="name_make" value="<?php print $r_str; ?>" placeholder="ここに名前が生成されます"></div>
+            <form id="name_save" method="post" action="name_make_save.php">
+                <div class="margin-center text-center"><input class="text-normal-power wid-name-text-box margin-top text-center" type="text" name="name_save" value="<?php print $r_str; ?>" placeholder="ここに名前が生成されます"></div>
+            </form>
             <div class="d-flex justify-content-around margin-top-power margin-bottom-power">
                 <form method="post" action="name_make_process.php">
                     
@@ -56,9 +58,7 @@
                 </form>
 
                 <diV>
-                    <div>
-                        <a href=""><button type="button" class="btn btn-primary text-big shadow" onclick="return check('名前を保存しますか？')">名前を保存する</button></a>
-                    </div>
+                    <button form="name_save" type="submit" class="btn btn-primary text-big shadow" onclick="return check('名前を保存しますか？')">名前を保存する</button>
 
                     <table class="table margin-top-power">
                         <thead class="alert-primary">
@@ -67,11 +67,28 @@
                                 <th class="text-center">削除</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>                
+                        <?php if(is_array($name_save_data) === true){ ?>
+                            <?php foreach($name_save_data as $key =>$value){ ?>
                             <tr>
-                                <td class="text-center">アマテラス</td>
-                                <td class="text-center"><a href=""><button type="button" class="btn btn-warning" onclick="return check('この名前を削除しますか？')">削除</button></a></td>
+                                <th class="text-center">
+                                    <?php print $value; ?>
+                                </th>
+                                <th class="text-center">
+                                <form action="name_make_delete.php" method="post">
+                                    <button type="submit" class="btn btn-warning" onclick="return check('この名前を削除しますか？')">削除</button>
+                                    <input type="hidden" name="name_key" value="<?php print $key; ?>">
+                                </form>
+                                </th>
                             </tr>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <tr>
+                                <th class="text-red">
+                                    <?php print '保存された名前はありません';?>
+                                </th>
+                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </diV>
