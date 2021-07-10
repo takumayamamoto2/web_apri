@@ -67,6 +67,7 @@ define('MASH_CLASS', array(
 ));
 
 define('MASH_CLASS_MAX', 300);
+define('NAME_COUNT',10);
 
 define('HIRAGANA',array(
     "あ","い","う","え","お",
