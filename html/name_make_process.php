@@ -7,13 +7,24 @@ session_start();
 
 // 生成する名前の文字数を取得
 $first_name_count = get_post('first_name_count');
-// 生成する名前の文字数をCookieに保存する
-cookie_set('first_name_count',$first_name_count);
+// 正しい文字数かどうかを検証する
+if(is_vaild_name_count($first_name_count) === true){
+    // 生成する名前の文字数をCookieに保存する
+    cookie_set('first_name_count',$first_name_count);
+} else {
+    redirect_to(NAME_MAKE_HOME_URL);
+}
 
 // 生成する名字の文字数を取得
 $last_name_count = get_post('last_name_count');
-// 生成する名字の文字数をCookieに保存する
-cookie_set('last_name_count',$last_name_count);
+// 正しい文字数かどうかを検証する
+if(is_vaild_name_count($last_name_count) === true){
+    // 生成する名字の文字数をCookieに保存する
+    cookie_set('last_name_count',$last_name_count);
+} else {
+    redirect_to(NAME_MAKE_HOME_URL);
+}
+
 
 // 生成する名字の位置の取得
 $last_name_posi = get_post('last_name_posi');

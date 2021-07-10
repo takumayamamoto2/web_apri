@@ -14,7 +14,7 @@ $calcu_data = str_change($calcu_data);
 
 //var_dump($calcu_data);
 // もしも正規表現以外の計算式の値だったらホームに戻る
-if(valid_formula($calcu_data) === false){
+if(valid_formula(FORMULA_REGEX, $calcu_data) === false){
     set_error('無効な計算式です');
     redirect_to(HOME_URL);
 }

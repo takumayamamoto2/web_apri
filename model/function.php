@@ -148,9 +148,9 @@ function entity_str_array_two($array_two){
     return $array_two;
 }
 
-// 正規表現で判定を行う
-function valid_formula($str){
-    if(preg_match(FORMULA_REGEX, $str) === 1 && $str !== ''){ 
+// 正規表現でデータの判定を行う
+function valid_formula($formula, $str){
+    if(preg_match($formula, $str) === 1 && $str !== ''){ 
         return true;
     }
     return false;
@@ -319,6 +319,14 @@ function get_random_str($str, $length = 5) {
         $r_str .= $str[rand(0, count($str)-1)];
     }
     return $r_str;
+}
+
+// 名前の文字数を検証する
+function is_vaild_name_count($str){
+    if($str <= NAME_COUNT){
+        return true;
+    }
+    return false;
 }
 
 // どの文字種かを判断して文字が格納されたデータを返す…漢字は配列に変換して返す
