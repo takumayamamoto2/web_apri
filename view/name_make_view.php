@@ -18,7 +18,7 @@
                 <div class="margin-center text-center"><input class="text-normal-power wid-name-text-box margin-top text-center" type="text" name="name_save" value="<?php print $r_str; ?>" placeholder="ここに名前が生成されます"></div>
             </form>
             <div class="d-flex justify-content-around margin-top-power margin-bottom-power">
-                <form method="post" action="name_make_process.php">
+                <form method="post" action="name_make_process.php" class="text-normal">
                     
                     <button type="submit" class="btn btn-danger text-big shadow" onclick="return check('名前を生成しますか？')">名前を生成する</button>
                     <h4 class="margin-top-power text-bold">【名前の文字数】</h4>
@@ -65,7 +65,7 @@
                 <diV>
                     <button form="name_save" type="submit" class="btn btn-primary text-big shadow" onclick="return check('名前を保存しますか？')">名前を保存する</button>
 
-                    <table class="table margin-top-power">
+                    <table class="table margin-top-power text-normal">
                         <thead class="alert-primary">
                             <tr>
                                 <th class="wid-200 text-center">名前</th>
@@ -89,7 +89,7 @@
                             <?php } ?>
                         <?php } else { ?>
                             <tr>
-                                <th class="text-red">
+                                <th class="text-red wid-200">
                                     <?php print '保存された名前はありません';?>
                                 </th>
                             </tr>
