@@ -8,7 +8,7 @@
     <body class="wid-body-name-make margin-center">
         <header class="margin-center text-center">
             <!-- javascriptを読み込む -->
-            <script src="<?php print JAVASCRIPT_PATH . 'js_mash.js';?>"></script>
+            <script src="<?php print JAVASCRIPT_PATH . 'name_make.js';?>"></script>
             <div class="text-big-power-few text-gray text-bold margin-top">キャラネームメーカー</div>
             <div class="text-gray margin-top text-normal">小説や漫画でキャラクターの名前が思い付かない…。</div>
             <div class="text-gray text-normal">そんなお悩みを瞬時に解決するページ――。</div>
@@ -28,18 +28,23 @@
                             <option value="<?php print $i; ?>" <?php if($first_name_count == $i){ print "selected"; } ?>><?php print $i; ?></option>
                         <?php } ?>
                     </select>
-
-                    名字：
-                    <select name="last_name_count">
-                        <?php $i=0; while($i < 10){ $i++; ?>
-                            <option value="<?php print $i; ?>" <?php if($last_name_count == $i){ print "selected"; } ?>><?php print $i; ?></option>
-                        <?php } ?>
-                    </select>
+                    <span id="last_name_count_id">
+                        名字：
+                        <select name="last_name_count" id="last_name_count">
+                            <?php $i=0; while($i < 10){ $i++; ?>
+                                <option value="<?php print $i; ?>" <?php if($last_name_count == $i){ print "selected"; } ?>><?php print $i; ?></option>
+                            <?php } ?>
+                        </select>
+                    </span>
 
                     <h4 class="text-bold margin-top">【名字】</h4>
-                    <label class="margin-right"><input type="radio" name="last_name_posi" value="none" <?php if($last_name_posi === "none"){ print "checked";} else if($last_name_posi === ''){ print "checked";} ?>>無し</label>
-                    <label class="margin-right"><input type="radio" name="last_name_posi" value="front" <?php if($last_name_posi === "front"){ print "checked";} ?>>前に含む</label>
-                    <label><input type="radio" name="last_name_posi" value="back" <?php if($last_name_posi === "back"){ print "checked";} ?>>後ろに含む</label>
+                    <label class="margin-right"><input type="radio" onchange="last_name_event()" name="last_name_posi" value="none" <?php if($last_name_posi === "none"){ print "checked";} else if($last_name_posi === ''){ print "checked";} ?>>無し</label>
+                    <label class="margin-right"><input type="radio" onchange="last_name_event()" name="last_name_posi" value="front" <?php if($last_name_posi === "front"){ print "checked";} ?>>前に含む</label>
+                    <label ><input type="radio" data-radio_first_name="2" onchange="last_name_event()" name="last_name_posi" value="back" <?php if($last_name_posi === "back"){ print "checked";} ?>>後ろに含む</label>
+                    <div name="example" class="text-gray" style="display: none;">例：太郎</div>
+                    <div name="example" class="text-gray" style="display: none;">例：山田　太郎</div>
+                    <div name="example" class="text-gray" style="display: none;">例：太郎　山田</div>
+                    
 
                     <h4 class="text-bold margin-top">【文字種】</h4>
                     <div class="border-line-bottom flex">
@@ -49,11 +54,11 @@
                         <label><input type="radio" name="first_name_type" value="china_char" <?php if($first_name_type === "china_char"){ print "checked";} ?>>漢字</label>
                     </div>
 
-                    <div class="margin-top flex">
+                    <div class="margin-top flex" id="last_name_type_id">
                         <div class="text-bold">名字：</div>
-                        <label class="margin-right"><input type="radio" name="last_name_type" value="hiragana" <?php if($last_name_type === "hiragana"){ print "checked";} else if($last_name_type === ''){ print "checked";} ?>>ひらがな</label>
-                        <label class="margin-right"><input type="radio" name="last_name_type" value="katakana" <?php if($last_name_type === "katakana"){ print "checked";} ?>>カタカナ</label>
-                        <label><input type="radio" name="last_name_type" value="china_char" <?php if($last_name_type === "china_char"){ print "checked";} ?>>漢字</label>
+                        <label class="margin-right"><input type="radio" data-last_type="0" name="last_name_type" value="hiragana" <?php if($last_name_type === "hiragana"){ print "checked";} else if($last_name_type === ''){ print "checked";} ?>>ひらがな</label>
+                        <label class="margin-right"><input type="radio" data-last_type="1" name="last_name_type" value="katakana" <?php if($last_name_type === "katakana"){ print "checked";} ?>>カタカナ</label>
+                        <label><input type="radio" data-last_type="2" name="last_name_type" value="china_char" <?php if($last_name_type === "china_char"){ print "checked";} ?>>漢字</label>
                     </div>
                 </form>
 
