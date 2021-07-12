@@ -22,11 +22,11 @@ $last_name_type = get_cookie('last_name_type');
 $name_save_data = get_cookie('name_save');
 
 // 保存された名前があった場合に処理する
-if(is_array($name_data_type) === true){
+if(is_array($name_save_data) === true){
 // 特殊文字をHTMLエンティティに変換
 $name_save_data = entity_str_array($name_save_data);
 // 新しい名前が上に来るように配列を逆順にする
-$name_save_data = array_reverse($name_save_data);
+$name_save_data = array_reverse($name_save_data, true);
 }
 
 // Cookieからランダムで作った文字を取得

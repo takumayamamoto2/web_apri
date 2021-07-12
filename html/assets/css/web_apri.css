@@ -137,18 +137,18 @@
 /*---- キャラクター名生成機 ----*/
 
 .wid-body-name-make{
-    max-width: 900px;
-    min-width: 900px;
+    max-width: 650px;
+    min-width: 650px;
 }
 
 .wid-name-make{
-    max-width: 800px;
-    min-width: 800px;
+    max-width: 630px;
+    min-width: 630px;
 }
 
 .wid-name-text-box{
-    max-width: 770px;
-    min-width: 770px;
+    max-width: 610px;
+    min-width: 610px;
 }
 
 .border-line-bottom{
